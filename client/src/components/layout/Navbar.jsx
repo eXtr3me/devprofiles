@@ -10,6 +10,7 @@ class Navbar extends Component {
     e.preventDefault();
     this.props.clearCurrentProfile();
     this.props.logoutUser();
+    window.location.href = '/login';
   }
 
   render() {
@@ -23,20 +24,23 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className='nav-item'>
-          <a
-            href=''
+          <img
+            className='rounded-circle'
+            src={user.avatar}
+            alt={user.name}
+            style={{ width: '25px', marginRight: '5px', marginTop: '5px' }}
+            title='You must have a Gravatar connected to your email to display an image'
+          />
+        </li>
+        <li className='nav-item'>
+          <button
+            type='button'
             onClick={this.onLogoutClick.bind(this)}
-            className='nav-link'
+            className='btn btn-danger'
+            // style={{ backgroundColor: 'transparent' }}
           >
-            <img
-              className='rounded-circle'
-              src={user.avatar}
-              alt={user.name}
-              style={{ width: '25px', marginRight: '5px' }}
-              title='You must have a Gravatar connected to your email to display an image'
-            />{' '}
             Logout
-          </a>
+          </button>
         </li>
       </ul>
     );
