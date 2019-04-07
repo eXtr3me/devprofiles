@@ -1,3 +1,2 @@
 # devprofiles
-=============
 Developer profiles project
