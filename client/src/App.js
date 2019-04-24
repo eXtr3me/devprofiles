@@ -4,6 +4,8 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import { clearCurrentProfile } from './actions/profileActions';
+import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
 import NotFound from './components/not-found/NotFound';
 
 import { Provider } from 'react-redux';
@@ -88,6 +90,12 @@ class App extends Component {
                   path='/add-education'
                   component={AddEducation}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path='/feed' component={Posts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path='/post/:id' component={Post} />
               </Switch>
               <Route exact path='/not-found' component={NotFound} />
             </div>
